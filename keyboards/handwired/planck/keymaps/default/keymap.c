@@ -229,20 +229,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* NUMBER
  *        ,-----------------------------------------------------------------------------------.
- *        |      |  ×   |  ×   |  ×   |  ×   |  ×   |  ×   |  7   |  8   |  9   |  -   |      |
+ *        |      |  ×   |  ×   |  ×   |  ×   |  ×   |  %   |  7   |  8   |  9   |  -   |      |
  *        |------+------+------+------+------+------|------+------+------+------+------+------|
  *        |      |  ×   |  ×   |  ×   |  ×   |  ×   |  (   |  4   |  5   |  6   |  +   |  =   |
  *        |------+------+------+------+------+------|------+------+------+------+------+------|
- *        |      |  ×   |  ×   |  ×   |  ×   |  ×   |  )   |  1   |  2   |  3   |  *   |      |
+ *        |      |  ×   |  ×   |  ×   |  ×   |  ×   |  )   |  1   |  2   |  3   |  /   |      |
  *        |------+------+------+------+------+------+------+------+------+------+------+------|
- *        |      |      |      |      |      |             |  0   |  .   |  =   |  /   |      |
+ *        |      |      |      |      |      |             |  0   |  .   |  =   |  *   |      |
  *        `-----------------------------------------------------------------------------------'
  */
 [_NUMBER] = LAYOUT_planck_grid(
-    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_KP_7 , KC_KP_8 , KC_KP_9 , KC_PMNS , _______ ,
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_PERC , KC_KP_7 , KC_KP_8 , KC_KP_9 , KC_PMNS , _______ ,
     _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_LPRN , KC_KP_4 , KC_KP_5 , KC_KP_6 , KC_PPLS , KC_PEQL ,
-    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_RPRN , KC_KP_1 , KC_KP_2 , KC_KP_3 , KC_PAST , _______ ,
-    _______ , _______ , _______ , _______ , _______ , _______ , _______ , KC_KP_0 , KC_PDOT , KC_PEQL , KC_PSLS , _______
+    _______ , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , XXXXXXX , KC_RPRN , KC_KP_1 , KC_KP_2 , KC_KP_3 , KC_PSLS , _______ ,
+    _______ , _______ , _______ , _______ , _______ , _______ , _______ , KC_KP_0 , KC_PDOT , KC_PEQL , KC_PAST , _______
 ),
 
 /* Blank

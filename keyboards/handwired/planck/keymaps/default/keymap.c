@@ -24,6 +24,7 @@ enum planck_layers {
   _BASE_WIN,
   _MAC_1,
   _MAC_N,
+  _MAC_W,
   _NUMBER,
   _WIN_1,
   _WIN_N,
@@ -43,6 +44,7 @@ enum planck_keycodes {
 
 #define MAC_1 MO(_MAC_1)
 #define MAC_N MO(_MAC_N)
+#define MAC_W MO(_MAC_W)
 #define MAC_N_CLN LT(_MAC_N, KC_SCLN)
 #define NUMBER MO(_NUMBER)
 #define WIN_1 MO(_WIN_1)
@@ -71,14 +73,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *        |------+------+------+------+------+------|------+------+------+------+------+------|
  *        | Shift|  Z   |  X   |  C   |  V   |  B   |  N   |  M   |  ,   |  .   |  /   |Shift | Enter
  *        |------+------+------+------+------+------+------+------+------+------+------+------|
- *        | NUM  | Ctrl |  ⌥   |  ⌘   |MAC_1 |    Space    |MAC_1 |  FN  |      | DYN  |MAC_N |
+ *        | NUM  | Ctrl |  ⌥   |  ⌘   |MAC_W |    Space    |MAC_1 |  FN  |      | DYN  |MAC_N |
  *        `-----------------------------------------------------------------------------------'
  */
 [_BASE_MAC] = LAYOUT_planck_grid(
     KC_TAB   , KC_Q     , KC_W     , KC_E     , KC_R   , KC_T    , KC_Y    , KC_U   , KC_I     , KC_O     , KC_P     , KC_BSPC  ,
     CTL_ESC  , KC_A     , KC_S     , KC_D     , KC_F   , KC_G    , KC_H    , KC_J   , KC_K     , KC_L     , MAC_N_CLN, KC_QUOT  ,
     KC_LSFT  , KC_Z     , KC_X     , KC_C     , KC_V   , KC_B    , KC_N    , KC_M   , KC_COMM  , KC_DOT   , KC_SLSH  , SFT_ENT  ,
-    NUMBER   , KC_LCTL  , KC_LALT  , KC_LCMD  , MAC_1  , KC_SPC  , KC_SPC  , MAC_1  , FN       , XXXXXXX  , DYN      , MAC_N
+    NUMBER   , KC_LCTL  , KC_LALT  , KC_LCMD  , MAC_W  , KC_SPC  , KC_SPC  , MAC_1  , FN       , XXXXXXX  , DYN      , MAC_N
 ),
 
 /* MAC_1
@@ -115,6 +117,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______  , _______  , KC_HOME     , KC_PGUP  , KC_PGDN  , KC_END      , KC_LEFT       , KC_DOWN        , KC_UP          , KC_RGHT    , _______    , KC_INS   ,
     _______  , _______  , _______     , _______  , _______  , A(KC_LEFT)  , _______       , _______        , _______        , _______    , _______    , _______  ,
     _______  , _______  , _______     , _______  , _______  , _______     , _______       , _______        , _______        , _______    , _______    , _______
+),
+
+/* MAC_W
+ *        ,-----------------------------------------------------------------------------------.
+ *        | ⌘`   | ⌘1   | ⌘2   | ⌘3   | ⌘4   | ⌘5   | ⌘6   | ⌘7   | ⌘8   | ⌘9   | ⌘0   |      |
+ *        |------+------+------+------+------+------|------+------+------+------+------+------|
+ *        |      |      |      |      |      |         ←   |  ↓   |  ↑   |  →   |      |  ⌘\  |
+ *        |------+------+------+------+------+------|------+------+------+------+------+------|
+ *        |      |      |      |      |      |      |      |      |      |      |  ↑   |      |
+ *        |------+------+------+------+------+------+------+------+------+------+------+------|
+ *        |      |      |      |      |      |             |      |      |  ←   |  ↓   |  →   |
+ *        `-----------------------------------------------------------------------------------'
+ */
+[_MAC_W] = LAYOUT_planck_grid(
+    G(KC_GRV)  , G(KC_1)  , G(KC_2)  , G(KC_3)  , G(KC_4)  , G(KC_5)    , G(KC_6)    , G(KC_7)  , G(KC_8)  , G(KC_9)  , G(KC_0)  , _______     ,
+    _______    , _______  , _______  , _______  , _______  , _______    , KC_LEFT    , KC_DOWN  , KC_UP    , KC_RGHT  , _______  , G(KC_BSLS)  ,
+    _______    , _______  , _______  , _______  , _______  , _______    , _______    , _______  , _______  , _______  , KC_UP    , _______     ,
+    _______    , _______  , _______  , _______  , _______  , G(KC_SPC)  , G(KC_SPC)  , _______  , _______  , KC_LEFT  , KC_DOWN  , KC_RGHT
 ),
 
 /* BASE_WIN

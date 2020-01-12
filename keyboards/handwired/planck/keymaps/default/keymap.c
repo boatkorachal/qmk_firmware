@@ -24,8 +24,8 @@ enum salmonsushi_keycodes {
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define SFT_ENT RSFT_T(KC_ENT)
-#define PRVTAB SGUI(KC_LBRC)
-#define NXTTAB SGUI(KC_RBRC)
+#define PRVTAB G(A(KC_LEFT))
+#define NXTTAB G(A(KC_RGHT))
 #define PRVWIN SGUI(KC_GRV)
 #define NXTWIN G(KC_GRV)
 
@@ -39,22 +39,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_LOWER] = LAYOUT_planck_grid(
-    KC_GRV   , KC_EXLM  , KC_AT    , KC_HASH  , KC_DLR   , KC_PERC  , KC_CIRC  , KC_AMPR  , KC_ASTR  , KC_MINS  , KC_EQL   , _______  ,
-    _______  , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     , KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_BSLS  ,
+    KC_TILD  , KC_EXLM  , KC_AT    , KC_HASH  , KC_DLR   , KC_PERC  , KC_CIRC  , KC_AMPR  , KC_ASTR  , KC_MINS  , KC_EQL   , _______  ,
+    KC_GRV   , KC_1     , KC_2     , KC_3     , KC_4     , KC_5     , KC_6     , KC_7     , KC_8     , KC_9     , KC_0     , KC_BSLS  ,
     _______  , KC_LCBR  , KC_RCBR  , KC_LPRN  , KC_RPRN  , KC_TILD  , KC_DOT   , KC_UNDS  , KC_PLUS  , KC_LBRC  , KC_RBRC  , _______  ,
     _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
 ),
 
 [_NAV] = LAYOUT_planck_grid(
-    _______  , _______  , _______  , _______  , _______  , _______  , _______  , PRVTAB   , NXTTAB   , _______  , _______  , _______   ,
-    _______    , _______  , _______  , _______  , _______  , _______  , KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  , _______  ,
-    _______    , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  ,
-    _______    , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
+    _______  , _______  , _______  , _______  , _______  , _______  , PRVWIN   , PRVTAB   , NXTTAB   , NXTWIN   , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  , KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
 ),
 
 [_POW] = LAYOUT_planck_grid(
     G(KC_GRV)  , G(KC_1)  , G(KC_2)  , G(KC_3)  , G(KC_4)  , G(KC_5)  , G(KC_6)  , G(KC_7)  , G(KC_8)  , G(KC_9)  , G(KC_0)  , KC_DEL   ,
-    _______    , _______  , _______  , _______  , _______  , _______  , KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  , _______  ,
+    _______    , _______  , PRVTAB   , KC_K     , KC_J     , NXTTAB   , KC_LEFT  , KC_DOWN  , KC_UP    , KC_RGHT  , _______  , _______  ,
     _______    , DM_PLY1  , DM_PLY2  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  ,
     _______    , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______  , _______
 ),
@@ -74,10 +74,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [_NUMBER] = LAYOUT_planck_grid(
-    _______ , KC_P     , KC_O     , KC_I     , KC_U     , KC_Y     , KC_PERC  , KC_KP_7  , KC_KP_8  , KC_KP_9  , KC_PAST  , _______  ,
-    _______ , NAV_CLN  , KC_L     , KC_K     , KC_J     , KC_H     , KC_LPRN  , KC_KP_4  , KC_KP_5  , KC_KP_6  , KC_PPLS  , KC_PEQL  ,
-    _______ , KC_SLSH  , KC_DOT   , KC_COMM  , KC_M     , KC_N     , KC_RPRN  , KC_KP_1  , KC_KP_2  , KC_KP_3  , KC_PMNS  , _______  ,
-    _______ , _______  , _______  , _______  , _______  , _______  , _______  , KC_KP_0  , XXXXXXX  , KC_PDOT  , KC_PSLS  , _______
+    _______  , _______  , _______  , KC_UP    , _______  , _______  , KC_PERC  , KC_KP_7  , KC_KP_8  , KC_KP_9  , KC_PAST  , _______  ,
+    _______  , _______  , KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  , KC_LPRN  , KC_KP_4  , KC_KP_5  , KC_KP_6  , KC_PPLS  , KC_PEQL  ,
+    _______  , _______  , _______  , _______  , _______  , _______  , KC_RPRN  , KC_KP_1  , KC_KP_2  , KC_KP_3  , KC_PMNS  , _______  ,
+    _______  , _______  , _______  , _______  , KC_LOCK  , _______  , _______  , KC_KP_0  , XXXXXXX  , KC_PDOT  , KC_PSLS  , _______
 ),
 
 /* Blank

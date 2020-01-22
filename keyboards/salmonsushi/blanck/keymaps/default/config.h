@@ -18,5 +18,3 @@
 
 // place overrides here
 #define DYNAMIC_MACRO_NO_NESTING
-#define PERMISSIVE_HOLD
-#define IGNORE_MOD_TAP_INTERRUPT

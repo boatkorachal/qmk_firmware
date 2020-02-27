@@ -24,10 +24,10 @@ enum salmonsushi_keycodes {
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define SFT_ENT RSFT_T(KC_ENT)
-// #define PRVTAB SGUI(KC_LBRC)
-// #define NXTTAB SGUI(KC_RBRC)
-#define PRVTAB G(A(KC_LEFT))
-#define NXTTAB G(A(KC_RGHT))
+#define PRVTAB SGUI(KC_LBRC)
+#define NXTTAB SGUI(KC_RBRC)
+// #define PRVTAB G(A(KC_LEFT))
+// #define NXTTAB G(A(KC_RGHT))
 #define PRVWIN SGUI(KC_GRV)
 #define NXTWIN G(KC_GRV)
 

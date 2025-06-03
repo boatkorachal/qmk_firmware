@@ -13,7 +13,7 @@ enum layer_names {
     _RSPACE,
     _BSPACE,
     _NAVCLN,
-    _NUMPAD,
+    _BTMLFT,
     _FNARROW,
     _MAC,
 };
@@ -27,13 +27,14 @@ enum custom_keycodes {
 
 
 #define __NAVCLN LT(_NAVCLN, KC_SCLN)
-#define __NUMPAD MO(_NUMPAD)
+#define __BTMLFT MO(_BTMLFT)
 #define __FNARROW MO(_FNARROW)
 #define __MAC MO(_MAC)
 
 #define CTL_ESC LCTL_T(KC_ESC)
 #define CTL_GRV LCTL_T(KC_GRV)
 #define SFT_ENT RSFT_T(KC_ENT)
+#define CTL_SFT LCTL_T(KC_LSFT)
 
 #define PRVTAB SGUI(KC_LBRC)
 #define NXTTAB SGUI(KC_RBRC)
@@ -47,14 +48,14 @@ KC_GRV  , KC_1   , KC_2   , KC_3   , KC_4  , KC_5  , KC_6  , KC_7  , KC_8     , 
 KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R  , KC_T  , KC_Y  , KC_U  , KC_I     , KC_O   , KC_P    , KC_BSPC ,
 CTL_ESC , KC_A   , KC_S   , KC_D   , KC_F  , KC_G  , KC_H  , KC_J  , KC_K     , KC_L   , __NAVCLN, KC_QUOT ,
 KC_LSFT , KC_Z   , KC_X   , KC_C   , KC_V  , KC_B  , KC_N  , KC_M  , KC_COMM  , KC_DOT , KC_SLSH , SFT_ENT ,
-__NUMPAD, KC_LCTL, KC_LALT, KC_LCMD, LSPACE, KC_SPC, KC_SPC, RSPACE, __FNARROW, XXXXXXX, __MAC   , XXXXXXX
+__BTMLFT, KC_LCTL, KC_LALT, KC_LCMD, LSPACE, KC_SPC, KC_SPC, RSPACE, __FNARROW, XXXXXXX, __MAC   , XXXXXXX
 ),
 
 [_LSPACE] = LAYOUT_ortho_5x12(
-_______   , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
-G(KC_GRV) , G(KC_1) , G(KC_2) , G(KC_3) , G(KC_4) , G(KC_5) , G(KC_6) , G(KC_7) , G(KC_8) , G(KC_9) , G(KC_0) , KC_DEL  ,
+_______   , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , KC_DEL  ,
+NXTWIN    , G(KC_1) , G(KC_2) , G(KC_3) , G(KC_4) , G(KC_5) , G(KC_6) , G(KC_7) , G(KC_8) , G(KC_9) , G(KC_0) , KC_DEL  ,
 _______   , KC_F1   , KC_F2   , KC_F3   , KC_F4   , KC_F5   , KC_F6   , KC_F7   , KC_F8   , KC_F9   , KC_F10  , _______ ,
-_______   , KC_F11  , KC_F12  , PRVTAB  , NXTTAB  , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
+KC_CAPS   , KC_F11  , KC_F12  , PRVTAB  , NXTTAB  , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
 _______   , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______
 ),
 
@@ -81,11 +82,11 @@ _______ , _______ , _______ , _______ , _______ , _______ , KC_LEFT , KC_DOWN , 
 _______ , _______ , _______ , _______ , _______ , _______ , _______ , KC_PGDN , KC_PGUP , _______ , _______ , _______ ,
 _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______
 ),
-[_NUMPAD] = LAYOUT_ortho_5x12(
-_______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
+[_BTMLFT] = LAYOUT_ortho_5x12(
+_______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , _______ , KC_DEL  ,
 _______ , _______ , KC_PGUP , KC_UP   , KC_PGDN , _______ , KC_PERC , KC_KP_7 , KC_KP_8 , KC_KP_9 , KC_PAST , KC_DEL  ,
 _______ , _______ , KC_LEFT , KC_DOWN , KC_RGHT , _______ , KC_LPRN , KC_KP_4 , KC_KP_5 , KC_KP_6 , KC_PPLS , KC_PEQL ,
-_______ , _______ , _______ , _______ , _______ , _______ , KC_RPRN , KC_KP_1 , KC_KP_2 , KC_KP_3 , KC_PMNS , _______ ,
+CTL_SFT , _______ , _______ , _______ , _______ , _______ , KC_RPRN , KC_KP_1 , KC_KP_2 , KC_KP_3 , KC_PMNS , _______ ,
 _______ , _______ , _______ , _______ , _______ , _______ , _______ , KC_KP_0 , KC_PDOT , XXXXXXX , KC_PSLS , _______
 ),
 
@@ -163,7 +164,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_RSPACE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_BSPACE] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_NAVCLN] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-    [_NUMPAD] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
+    [_BTMLFT] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_FNARROW] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_MAC] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) }
 };
